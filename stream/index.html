@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8" />
+		<title>Stream</title>
+        <style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+				width: 100%;
+				height: 100%;
+				background: #000;
+			}
+			
+			video {
+				float: left;
+			}
+        </style>
+		<script>
+			function getIP(json) {
+				let ip = json.ip;
+				let fragment = window.location.hash.substr(1);
+				
+				let host, port;
+				if (fragment.indexOf(":") !== -1) {
+					host = fragment.split(":")[0];
+					port = fragment.split(":")[1];
+				} else {
+					host = fragment;
+					port = "8080";
+				}
+				
+				if (host === "" || host === ip) {
+					host = "localhost";
+				}
+				
+				document.querySelector("video").src = "http://" + host + ":" + port + "/";
+			}
+		</script>
+		<script type="text/javascript" src="http://api.ipify.org?format=jsonp&callback=getIP" defer></script>
+	</head>
+    <body>
+		<video autoplay></video>
+    </body>
+</html>
