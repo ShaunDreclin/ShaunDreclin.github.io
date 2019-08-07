@@ -34,12 +34,20 @@
 					host = "localhost";
 				}
 				
-				document.querySelector("video").src = "http://" + host + ":" + port + "/";
+				let video = document.createElement("video");
+				
+				video.src = "http://" + host + ":" + port + "/";
+				video.oncanplay = function() { this.play(); }
+				
+				video.onabort = function() { window.location.reload(true); }
+				video.onended = function() { window.location.reload(true); }
+				video.onerror = function() { window.location.reload(true); }
+				video.onstalled = function() { window.location.reload(true); }
+				
+				document.body.appendChild(video);
 			}
 		</script>
 		<script type="text/javascript" src="http://api.ipify.org?format=jsonp&callback=getIP" defer></script>
 	</head>
-	<body>
-		<video autoplay></video>
-	</body>
+	<body></body>
 </html>
