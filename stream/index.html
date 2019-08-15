@@ -53,7 +53,7 @@
 				let ip = json.ip;
 				let fragment = window.location.hash.substr(1);
 
-				document.querySelector("#watermark").innerHTML = window.location.href;
+				document.querySelector("#watermark").innerHTML = location.protocol + "//" + location.host + location.pathname;
 				document.querySelector("#watermark").style.opacity = 0;
 
 				if (fragment === "") {
