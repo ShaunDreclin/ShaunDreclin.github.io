@@ -51,15 +51,16 @@
 		<script>
 			function getIP(json) {
 				let ip = json.ip;
+				let url = window.location.protocol + "//" + window.location.host + window.location.pathname;
 				let fragment = window.location.hash.substr(1);
 
-				document.querySelector("#watermark").innerHTML = location.protocol + "//" + location.host + location.pathname;
+				document.querySelector("#watermark").innerHTML = url;
 				document.querySelector("#watermark").style.opacity = 0;
 
 				if (fragment === "") {
 					document.querySelector("#usage").innerHTML = "<h1>Usage:</h1>"
-						+ window.location.href + "#ip<br>"
-						+ window.location.href + "#ip:port<br>"
+						+ url + "#ip<br>"
+						+ url + "#ip:port<br>"
 						+ "<br>"
 						+ "Port defaults to 8080 if omitted.";
 					document.querySelector("#usage").style.opacity = 1;
