@@ -4,25 +4,70 @@
 		<meta charset="utf-8">
 		<title>Stream</title>
 		<style>
-			* {
+			html, body, video {
 				margin: 0px;
 				padding: 0px;
 				width: 100%;
 				height: 100%;
-				background: #000;
 			}
 			
+			body {
+				background: #000;
+				font-family: verdana;
+			}
+
 			video {
 				float: left;
+			}
+			
+			#usage {
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				min-width: 230px;
+				border: 2px solid #000;
+				border-radius: 5px;
+				box-shadow: 3px 3px 4px 4px #111;
+				padding: 0 10px 10px 10px;
+				background: #DDD;
+				font-size: 12px;
+				opacity: 0;
+			} #usage > h1 {
+				font-size: 14px;
+				font-weight: bold;
+			}
+
+			#watermark {
+				position: fixed;
+				right: 20px;
+				bottom: 20px;
+				font-size: 16px;
+				font-weight: bold;
+				color: #FFF;
+				transition: opacity 3s 3s;
 			}
 		</style>
 		<script>
 			function getIP(json) {
 				let ip = json.ip;
 				let fragment = window.location.hash.substr(1);
+
+				document.querySelector("#watermark").innerHTML = window.location.href;
+				document.querySelector("#watermark").style.opacity = 0;
+
+				if (fragment === "") {
+					document.querySelector("#usage").innerHTML = "<h1>Usage:</h1>"
+						+ window.location.href + "#ip<br>"
+						+ window.location.href + "#ip:port<br>"
+						+ "<br>"
+						+ "Port defaults to 8080 if omitted.";
+					document.querySelector("#usage").style.opacity = 1;
+					return;
+				}
 				
 				let host, port;
-				if (fragment.indexOf(":") !== -1) {
+				if (fragment.includes(":")) {
 					host = fragment.split(":")[0];
 					port = fragment.split(":")[1];
 				} else {
@@ -30,7 +75,7 @@
 					port = "8080";
 				}
 				
-				if (host === "" || host === ip) {
+				if (host === ip) {
 					host = "localhost";
 				}
 				
@@ -49,5 +94,8 @@
 		</script>
 		<script src="http://api.ipify.org?format=jsonp&callback=getIP" defer></script>
 	</head>
-	<body></body>
+	<body>
+		<div id="usage"></div>
+		<div id="watermark"></div>
+	</body>
 </html>
