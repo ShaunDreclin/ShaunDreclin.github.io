@@ -42,10 +42,15 @@
 				position: fixed;
 				right: 20px;
 				bottom: 20px;
-				font-size: 16px;
+				font-size: 4vmin;
 				font-weight: bold;
 				color: #FFF;
-				transition: opacity 3s 3s;
+				text-shadow:
+					-0.2vmin -0.2vmin 0 #000,
+					0.2vmin -0.2vmin 0 #000,
+					-0.2vmin 0.2vmin 0 #000,
+					0.2vmin 0.2vmin 0 #000;
+				transition: opacity 3s;
 			}
 		</style>
 		<script>
@@ -53,20 +58,15 @@
 				let ip = json.ip;
 				let url = window.location.protocol + "//" + window.location.host + window.location.pathname;
 				let fragment = window.location.hash.substr(1);
-
-				document.querySelector("#watermark").innerHTML = url;
-				document.querySelector("#watermark").style.opacity = 0;
-
-				if (fragment === "") {
-					document.querySelector("#usage").innerHTML = "<h1>Usage:</h1>"
-						+ url + "#ip<br>"
-						+ url + "#ip:port<br>"
-						+ "<br>"
-						+ "Port defaults to 8080 if omitted.";
-					document.querySelector("#usage").style.opacity = 1;
-					return;
-				}
+	
+				let usage = document.querySelector("#usage");
+				usage.innerHTML = "<h1>Usage:</h1>" + url + "#ip<br>" + url + "#ip:port<br><br>Port defaults to 8080 if omitted.";
 				
+				let watermark = document.querySelector("#watermark");
+				watermark.innerHTML = url;
+
+				if (fragment === "") { usage.style.opacity = 1; return; }
+
 				let host, port;
 				if (fragment.includes(":")) {
 					host = fragment.split(":")[0];
@@ -83,13 +83,14 @@
 				let video = document.createElement("video");
 				
 				video.src = "http://" + host + ":" + port + "/";
-				video.oncanplay = function() { this.play(); }
+				video.oncanplay = function() { this.play(); watermark.style.opacity = 0; }
 				
-				video.onabort = function() { window.location.reload(true); }
-				video.onended = function() { window.location.reload(true); }
-				video.onerror = function() { window.location.reload(true); }
-				video.onstalled = function() { window.location.reload(true); }
+				video.onabort = function() { this.remove(); watermark.style.opacity = 1; setTimeout(getIP, 1000, {"ip":ip}); }
+				video.onended = function() { this.remove(); watermark.style.opacity = 1; setTimeout(getIP, 1000, {"ip":ip}); }
+				video.onerror = function() { this.remove(); watermark.style.opacity = 1; setTimeout(getIP, 1000, {"ip":ip}); }
+				video.onstalled = function() { this.remove(); watermark.style.opacity = 1; setTimeout(getIP, 1000, {"ip":ip}); }
 				
+				for (let video of document.querySelectorAll("video")) { video.remove(); }
 				document.body.appendChild(video);
 			}
 		</script>
