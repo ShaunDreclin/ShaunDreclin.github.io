@@ -1,0 +1,64 @@
+html, body, video {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background: #000;
+	font-family: verdana;
+}
+
+video {
+	float: left;
+}
+
+#usage {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	min-width: 230px;
+	border: 2px solid #000;
+	border-radius: 5px;
+	box-shadow: 3px 3px 4px 4px #111;
+	padding: 0 10px 10px 10px;
+	background: #DDD;
+	font-size: 12px;
+	display: none;
+} #usage > h1 {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#logo {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 15vmin;
+	height: 15vmin;
+	animation: spin 2000ms infinite linear;
+	transition: opacity 3s;
+}
+	
+@keyframes spin {
+	from { transform: translate(-50%, -50%) rotate(0deg); }
+	to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+#watermark {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	font-size: 4vmin;
+	font-weight: bold;
+	color: #FFF;
+	text-shadow:
+		-0.2vmin -0.2vmin 0 #000,
+		0.2vmin -0.2vmin 0 #000,
+		-0.2vmin 0.2vmin 0 #000,
+		0.2vmin 0.2vmin 0 #000;
+	transition: opacity 3s;
+}

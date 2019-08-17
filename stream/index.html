@@ -3,101 +3,13 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Stream</title>
-		<style>
-			html, body, video {
-				margin: 0px;
-				padding: 0px;
-				width: 100%;
-				height: 100%;
-			}
-			
-			body {
-				background: #000;
-				font-family: verdana;
-			}
-
-			video {
-				float: left;
-			}
-			
-			#usage {
-				position: fixed;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				min-width: 230px;
-				border: 2px solid #000;
-				border-radius: 5px;
-				box-shadow: 3px 3px 4px 4px #111;
-				padding: 0 10px 10px 10px;
-				background: #DDD;
-				font-size: 12px;
-				opacity: 0;
-			} #usage > h1 {
-				font-size: 14px;
-				font-weight: bold;
-			}
-
-			#watermark {
-				position: fixed;
-				right: 20px;
-				bottom: 20px;
-				font-size: 4vmin;
-				font-weight: bold;
-				color: #FFF;
-				text-shadow:
-					-0.2vmin -0.2vmin 0 #000,
-					0.2vmin -0.2vmin 0 #000,
-					-0.2vmin 0.2vmin 0 #000,
-					0.2vmin 0.2vmin 0 #000;
-				transition: opacity 3s;
-			}
-		</style>
-		<script>
-			function getIP(json) {
-				let ip = json.ip;
-				let url = window.location.protocol + "//" + window.location.host + window.location.pathname;
-				let fragment = window.location.hash.substr(1);
-	
-				let usage = document.querySelector("#usage");
-				usage.innerHTML = "<h1>Usage:</h1>" + url + "#ip<br>" + url + "#ip:port<br><br>Port defaults to 8080 if omitted.";
-				
-				let watermark = document.querySelector("#watermark");
-				watermark.innerHTML = url;
-
-				if (fragment === "") { usage.style.opacity = 1; return; }
-
-				let host, port;
-				if (fragment.includes(":")) {
-					host = fragment.split(":")[0];
-					port = fragment.split(":")[1];
-				} else {
-					host = fragment;
-					port = "8080";
-				}
-				
-				if (host === ip) {
-					host = "localhost";
-				}
-				
-				let video = document.createElement("video");
-				
-				video.src = "http://" + host + ":" + port + "/";
-				video.oncanplay = function() { this.play(); watermark.style.opacity = 0; }
-				
-				video.onabort = function() { this.remove(); watermark.style.opacity = 1; setTimeout(getIP, 1000, {"ip":ip}); }
-				video.onended = function() { this.remove(); watermark.style.opacity = 1; setTimeout(getIP, 1000, {"ip":ip}); }
-				video.onerror = function() { this.remove(); watermark.style.opacity = 1; setTimeout(getIP, 1000, {"ip":ip}); }
-				video.onstalled = function() { this.remove(); watermark.style.opacity = 1; setTimeout(getIP, 1000, {"ip":ip}); }
-				
-				for (let video of document.querySelectorAll("video")) { video.remove(); }
-				document.body.appendChild(video);
-			}
-		</script>
+		<link rel="stylesheet" href="style.css">
+		<script src="script.js" defer></script>
 		<script src="http://api.ipify.org?format=jsonp&callback=getIP" defer></script>
 	</head>
 	<body>
 		<div id="usage"></div>
+		<img id="logo" src="logo.png">
 		<div id="watermark"></div>
 	</body>
 </html>
