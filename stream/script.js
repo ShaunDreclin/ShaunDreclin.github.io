@@ -29,6 +29,8 @@ function getIP(json) {
 		host = "localhost";
 	}
 	
+	for (let video of document.querySelectorAll("video")) { video.remove(); }
+
 	let video = document.createElement("video");
 	
 	video.src = "http://" + host + ":" + port + "/";
