@@ -29,7 +29,7 @@ function getIP(json) {
 		host = "localhost";
 	}
 	
-	for (let video of document.querySelectorAll("video")) { video.remove(); }
+	for (let video of document.querySelectorAll("video")) { video.stop(); video.remove(); }
 
 	let video = document.createElement("video");
 	
@@ -49,7 +49,7 @@ function getIP(json) {
 }
 
 function reload(ip) {
-	for (let video of document.querySelectorAll("video")) { video.remove(); }
+	for (let video of document.querySelectorAll("video")) { video.stop(); video.remove(); }
 	logo.style.opacity = 1;
 	watermark.style.opacity = 1;
 	setTimeout(getIP, 1000, {"ip":ip});
