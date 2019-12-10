@@ -11,5 +11,5 @@
 	"maxHeight":1000,
 	"requestHandlers":[],
 	"activators":["Open Calendar", "Open Planner"],
-	"permissions":"overlay"
+	"permissions":"none"
 }
