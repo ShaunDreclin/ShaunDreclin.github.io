@@ -2,6 +2,10 @@ body>div {
 	border-bottom: 1px solid rgba(0,0,0,0.6)
 }
 
+body>div::after {
+	clear: both;
+}
+
 .left {
 	float: left;
 	color: #F0F;
@@ -9,6 +13,7 @@ body>div {
 
 .right {
 	float: right;
+	color: #F0F;
 }
 
 div.radio {
