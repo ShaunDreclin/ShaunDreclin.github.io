@@ -3,18 +3,20 @@ body>div {
 }
 
 body>div::after {
+	content: " ";
 	display: block;
+	height: 0;
 	clear: both;
 }
 
 .left {
 	float: left;
-	color: #0F0;
+	color: #FF0;
 }
 
 .right {
 	float: right;
-	color: #0F0;
+	color: #FF0;
 }
 
 div.radio {
