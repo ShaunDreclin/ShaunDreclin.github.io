@@ -11,7 +11,10 @@
 		<script src="dailyscape.js" defer></script>
 	</head>
 	<body class="nis">
-		<input type="text">
-		<input type="button" value="Add Task" onclick="addTask();">
+		<input type="text" id="taskName">
+		<input type="button" value="Add Task" onclick="addTask();"><br>
+		<input type="radio" name="taskReset" value="Daily" checked>
+		<input type="radio" name="taskReset" value="Weekly">
+		<input type="radio" name="taskReset" value="Monthly">
 	</body>
 </html>
