@@ -1,6 +1,4 @@
 body>div {
-	margin: auto;
-	
 	user-select: none;
 	-ms-user-select: none;
 	-moz-user-select: none;
