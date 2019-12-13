@@ -4,7 +4,7 @@
 	"appUrl":"/alt1/brokenhome/",
 	"configUrl":"/alt1/brokenhome/appconfig.json",
 	"iconUrl":"/alt1/brokenhome/icon.png",
-	"defaultWidth":250,
+	"defaultWidth":400,
 	"defaultHeight":500,
 	"activators":["Talk to Maria 19)", "Peek Door"],
 }
