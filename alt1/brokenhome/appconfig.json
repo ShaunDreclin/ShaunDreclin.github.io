@@ -6,5 +6,5 @@
 	"iconUrl":"/alt1/brokenhome/icon.png",
 	"defaultWidth":475,
 	"defaultHeight":550,
-	"activators":["Talk to Maria 19)", "Peek Door"],
+	"activators":["Peek Door"],
 }
