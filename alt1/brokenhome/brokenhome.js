@@ -158,13 +158,13 @@ let steps = [
 ];
 
 for (let step of steps) {
-		let stepLine = document.createElement("div");
-		stepLine.innerHTML = step;
-		stepLine.addEventListener("mousedown", e => { if (e.buttons == 1) {
-			stepLine.classList.toggle("done");
-		}});
-
-		document.querySelector("#step-list").appendChild(stepLine);
+	let stepLine = document.createElement("div");
+	stepLine.innerHTML = step;
+	stepLine.addEventListener("mousedown", e => { if (e.buttons == 1) {
+		stepLine.classList.toggle("done");
+	}});
+	
+	document.querySelector("#step-list").appendChild(stepLine);
 }
 
 if (window.alt1 && alt1.versionint > 1001000) { alt1.identifyAppUrl("appconfig.json"); }
