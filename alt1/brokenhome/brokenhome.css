@@ -1,0 +1,28 @@
+body {
+	overflow: auto !important;
+}
+
+#step-list {
+	margin: auto;
+	
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+
+#step-list>div {
+	padding: 0px 10px 0px 10px;
+	text-align: left;
+	font-size: 110%;
+	line-height: 30px;
+	border-bottom: 1px solid rgba(0,0,0,0.6);
+} #step-list>div:hover {
+	background: rgba(255,255,255,0.2);
+} #step-list>div.done {
+	color: rgba(255, 255, 255, 0.2);
+} #step-list>div::after {
+	content: "";
+	display: block;
+	clear: both;
+}

@@ -1,0 +1,10 @@
+{
+	"appName":"Broken Home",
+	"description":"A quick guide for broken home replays.",
+	"appUrl":"/alt1/brokenhome/",
+	"configUrl":"/alt1/brokenhome/appconfig.json",
+	"iconUrl":"/alt1/brokenhome/icon.png",
+	"defaultWidth":250,
+	"defaultHeight":500,
+	"activators":["Talk to Maria 19)", "Peek Door"],
+}
