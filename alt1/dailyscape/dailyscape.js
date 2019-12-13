@@ -92,4 +92,4 @@ document.querySelector("#task-submit").addEventListener("mousedown", e => { if (
 setInterval(drawTasks, 100);
 drawTasks();
 
-alt1.identifyAppUrl("appconfig.json")
+alt1.identifyAppUrl("appconfig.json");
