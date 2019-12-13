@@ -3,26 +3,20 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Dailyscape</title>
-		<link rel="stylesheet" href="//runeapps.org/nis/nis.css">
-		<link rel="stylesheet" href="//runeapps.org/nis/alt1-currentskin/skinstyle.css">
+		<link rel="stylesheet" href="https://runeapps.org/nis/nis.css">
+		<link rel="stylesheet" href="https://runeapps.org/nis/alt1-currentskin/skinstyle.css">
 		<link rel="stylesheet" href="dailyscape.css">
-		<script src="//runeapps.org/runeappslib.js" defer></script>
-		<script src="//runeapps.org/alt1lib.js" defer></script>
+		<script src="https://runeapps.org/alt1lib.js" defer></script>
 		<script src="dailyscape.js" defer></script>
 	</head>
 	<body class="nis">
-		<div>
-			<div class="left">Left Text</div>
-			<div class="right">Right Text</div>
-		</div>
-		<div>
-			<input type="text" id="taskName">
-			<input type="button" value="Add Task" onclick="addTask();"><br>
-			<div class="radio">
-				<input type="radio" name="taskReset" value="daily" id="daily" checked><label for="daily">Daily</label>
-				<input type="radio" name="taskReset" value="weekly" id="weekly"><label for="weekly">Weekly</label>
-				<input type="radio" name="taskReset" value="monthly" id="monthly"><label for="monthly">Monthly</label>
-			</div>
+		<div id="task-list"></div>
+		<div id="task-input">
+			<input class="nisinput" type="text" id="task-name">
+			<div class="nisbutton" id="task-submit">Add&nbsp;Task</div><br>
+			<input type="radio" name="task-interval" id="daily" checked><label for="daily">Daily</label>
+			<input type="radio" name="task-interval" id="weekly"><label for="weekly">Weekly</label>
+			<input type="radio" name="task-interval" id="monthly"><label for="monthly">Monthly</label>
 		</div>
 	</body>
 </html>
