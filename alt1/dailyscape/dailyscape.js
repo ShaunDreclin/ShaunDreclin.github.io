@@ -92,4 +92,4 @@ document.querySelector("#task-submit").addEventListener("mousedown", e => { if (
 setInterval(drawTasks, 100);
 drawTasks();
 
-alt1.identifyAppUrl("appconfig.json");
+if (alt1 && alt1.versionint > 1001000) { alt1.identifyAppUrl("appconfig.json"); }
