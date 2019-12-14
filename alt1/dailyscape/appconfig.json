@@ -6,5 +6,5 @@
 	"iconUrl":"/alt1/dailyscape/icon.png",
 	"defaultWidth":250,
 	"defaultHeight":500,
-	"activators":["Open Calendar", "Open Planner"],
+	"activators":["Open Calendar", "Open Planner"]
 }
