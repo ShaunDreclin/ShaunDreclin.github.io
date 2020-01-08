@@ -17,6 +17,16 @@ function getCountdown(timestamp) {
 	else { return "Ready"; }
 }
 
+function swapTasks(idxA, idxB) {
+	console.log(`swapTasks(${idxA}, ${idxB})`);
+	if (idxA < idxB && idxB < savedTasks.length
+	|| idxA > idxB && idxB >= 0) {
+		let tmp = savedTasks[idxA];
+		savedTasks[idxA] = savedTasks[idxB];
+		savedTasks[idxB] = tmp;
+	}
+}
+
 function drawTasks() {
 	for (let [i, task] of savedTasks.entries()) {
 		let taskLine = document.querySelector(`div[data-index="${i}"]`);
@@ -25,6 +35,7 @@ function drawTasks() {
 			let taskLine = document.createElement("div");
 			taskLine.dataset.index = i;
 			taskLine.addEventListener("mousedown", e => { if (e.buttons == 1) {
+				let task = savedTasks[taskLine.dataset.index];
 				if (task.completed > 0) { task.completed = 0; }
 				else { task.completed = Date.now(); }
 			}});
@@ -36,9 +47,18 @@ function drawTasks() {
 			let time = document.createElement("div");
 			time.classList.add("time");
 
+			let options = document.createElement("div");
+			options.classList.add("options");
+			
+			let moveUp = document.createElement("div");
+			moveUp.innerHTML = "ᐱ";
+			moveUp.addEventListener("mousedown", e => { if (e.buttons == 1) {
+				e.stopPropagation();
+				swapTasks(taskLine.dataset.index, +taskLine.dataset.index - 1);
+			}});
+
 			let remove = document.createElement("div");
-			remove.classList.add("remove");
-			remove.innerHTML = "x";
+			remove.innerHTML = "X";
 			remove.addEventListener("mousedown", e => { if (e.buttons == 1) {
 				e.stopPropagation();
 				savedTasks.splice(taskLine.dataset.index, 1);
@@ -49,12 +69,25 @@ function drawTasks() {
 				}
 			}});
 
+			let moveDown = document.createElement("div");
+			moveDown.innerHTML = "ᐯ";
+			moveDown.addEventListener("mousedown", e => { if (e.buttons == 1) {
+				e.stopPropagation();
+				swapTasks(taskLine.dataset.index, +taskLine.dataset.index + 1);
+			}});
+
+			options.appendChild(moveUp);
+			options.appendChild(remove);
+			options.appendChild(moveDown);
+			
 			taskLine.appendChild(name);
-			taskLine.appendChild(remove);
+			taskLine.appendChild(options);
 			taskLine.appendChild(time);
 			document.querySelector("#task-list").appendChild(taskLine);
 			
 		} else { //Update task line
+			taskLine.querySelector(".name").innerHTML = task.name;
+
 			let completed = new Date(task.completed);
 			
 			let nextReset;
