@@ -18,7 +18,6 @@ function getCountdown(timestamp) {
 }
 
 function swapTasks(idxA, idxB) {
-	console.log(`swapTasks(${idxA}, ${idxB})`);
 	if (idxA < idxB && idxB < savedTasks.length
 	|| idxA > idxB && idxB >= 0) {
 		let tmp = savedTasks[idxA];
