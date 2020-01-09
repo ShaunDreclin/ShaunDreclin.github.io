@@ -45,12 +45,19 @@ a, a:visited {
 	grid-area: name;
 	font-size: 120%;
 	font-weight: bold;
+} .name>span {
+	cursor: help;
+	text-align: center;
 } .requirements {
-	cursor: help;
-	clip-path: circle(32% at center);
+	padding: 0.25em 0.5em 0.2em 0.5em;
+	background: #07D;
+	clip-path: circle(45% at center);
+	font-size: 70%;
 } .warning {
-	cursor: help;
-	font-size: 82%;
+	padding: 0.25em 0.5em 0 0.5em;
+	background: #D00;
+	clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+	font-size: 70%;
 }
 
 .info {
