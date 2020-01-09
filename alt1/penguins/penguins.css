@@ -48,16 +48,15 @@ a, a:visited {
 } .name>span {
 	cursor: help;
 	text-align: center;
+	font-size: 70%;
 } .requirements {
 	padding: 0.25em 0.5em 0.2em 0.5em;
 	background: #07D;
 	clip-path: circle(45% at center);
-	font-size: 70%;
 } .warning {
 	padding: 0.25em 0.5em 0 0.5em;
 	background: #D00;
 	clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-	font-size: 70%;
 }
 
 .info {
