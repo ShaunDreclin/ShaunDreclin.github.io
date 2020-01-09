@@ -1,0 +1,10 @@
+{
+	"appName":"Penguin Tracker",
+	"description":"Displays the list of penguin locations from world60pengs.com.",
+	"appUrl":"/alt1/penguins/",
+	"configUrl":"/alt1/penguins/appconfig.json",
+	"iconUrl":"/alt1/penguins/icon.png",
+	"defaultWidth":600,
+	"defaultHeight":800,
+	"activators":["regex:^Hide-n-Seek", "regex:^Spy-on", "Inspect Well"],
+}

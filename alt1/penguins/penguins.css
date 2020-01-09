@@ -1,0 +1,68 @@
+body {
+	overflow: auto !important;
+}
+
+a, a:visited {
+	color: #AAF;
+	text-decoration: none;
+} a:hover {
+	text-decoration: underline;
+}
+
+#penguin-list {
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+
+#penguin-list>div {
+	display: grid;
+	grid-template-columns: 40px 1fr;
+	grid-template-rows: repeat(2, min-content);
+	grid-template-areas:
+		"icon name"
+		"icon info";
+	padding: 6px 10px;
+	border-bottom: 1px solid rgba(0,0,0,0.6);
+} #penguin-list>div:hover {
+	background: rgba(255,255,255,0.2);
+} #penguin-list>div.done {
+	opacity: 0.2;
+}
+
+.icon {
+	grid-area: icon;
+	align-self: center;
+	max-width: 38px;
+	max-height: 38px;
+	width: auto;
+	height: auto;
+	margin: auto;
+}
+
+.name {
+	grid-area: name;
+	font-size: 120%;
+	font-weight: bold;
+} .requirements {
+	cursor: help;
+	clip-path: circle(32% at center);
+} .warning {
+	cursor: help;
+	font-size: 82%;
+}
+
+.info {
+	grid-area: info;
+	font-size: 110%;
+	color: rgba(255,255,255,0.5);
+} .location {
+	color: rgba(255,255,255,1)
+}
+
+#footer {
+	margin: 10px;
+	text-align: center;
+	font-size: 80%;
+}
