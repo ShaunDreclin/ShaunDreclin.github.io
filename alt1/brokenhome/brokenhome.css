@@ -18,9 +18,17 @@ body {
 } #step-list>div:hover {
 	background: rgba(255,255,255,0.2);
 } #step-list>div.done {
-	color: rgba(255, 255, 255, 0.2);
-} #step-list>div::after {
-	content: "";
-	display: block;
-	clear: both;
+	opacity: 0.2;
+}
+
+.safe {
+	color: #A00;
+} .item {
+	color: #0A0;
+} .key {
+	color: #DA2;
+} .purple {
+	color: #A0A;
+} .indent {
+	margin-left: 20px;
 }
