@@ -23,8 +23,6 @@ function update() {
 	fetch('https://cors-anywhere.herokuapp.com/https://jq.world60pengs.com/rest/cache/actives.json')
 		.then(response => response.json())
 		.then(penguins => {
-			console.log(penguins);
-			
 			let bear = penguins.Bear[0];
 			bear.disguise = "Bear";
 			bear.points = 1;
