@@ -6,5 +6,5 @@
 	"iconUrl":"/alt1/penguins/icon.png",
 	"defaultWidth":620,
 	"defaultHeight":730,
-	"activators":["regex:^Hide-n-Seek.*", "regex:^Spy-on.*", "Inspect Well"],
+	"activators":["regex:^Hide-n-Seek.*", "regex:^Spy-on.*", "Inspect Well"]
 }
