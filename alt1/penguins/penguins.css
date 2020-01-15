@@ -18,12 +18,12 @@ a, a:visited {
 
 #penguin-list>div {
 	display: grid;
-	grid-template-columns: 40px 1fr;
+	grid-template-columns: 45px 1fr;
 	grid-template-rows: repeat(2, min-content);
 	grid-template-areas:
 		"icon name"
 		"icon info";
-	padding: 6px 10px;
+	padding: 6px;
 	border-bottom: 1px solid rgba(0,0,0,0.6);
 } #penguin-list>div:hover {
 	background: rgba(255,255,255,0.2);

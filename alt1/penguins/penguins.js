@@ -23,10 +23,16 @@ function update() {
 	fetch('https://cors-anywhere.herokuapp.com/https://jq.world60pengs.com/rest/cache/actives.json')
 		.then(response => response.json())
 		.then(penguins => {
+			console.log(penguins);
+			
 			let bear = penguins.Bear[0];
 			bear.disguise = "Bear";
 			bear.points = 1;
 			penguins.Activepenguin.push(bear);
+			
+			let circus = penguins.Circus[0];
+			circus.disguise = "Circus";
+			penguins.Activepenguin.push(circus);
 		
 			for (let [i,penguin] of penguins.Activepenguin.entries()) {
 				let penguinLine = document.querySelectorAll("#penguin-list>div")[i];
@@ -48,7 +54,8 @@ function update() {
 				
 				let name = document.createElement("div");
 				name.classList.add("name");
-				name.innerHTML += `${penguin.name} - ${penguin.disguise} (${penguin.points})`;
+				name.innerHTML += `${penguin.name} - ${penguin.disguise}`;
+				name.innerHTML += penguin.points ? ` (${penguin.points})` : ``;
 				name.innerHTML += penguin.requirements ? ` <span class="requirements" title="${penguin.requirements.replace(/\"/g, '&quot;')}">i</span>` : ``;
 				name.innerHTML += penguin.warning ? ` <span class="warning" title="${penguin.warning.replace(/\"/g, '&quot;')}">!</span>` : ``;
 				penguinLine.appendChild(name);
@@ -56,7 +63,7 @@ function update() {
 				let info = document.createElement("div");
 				info.classList.add("info");
 				info.innerHTML += (penguin.format == 1) ? `Confined to ${penguin.confined_to}<br>` : ``;
-				info.innerHTML += `Last seen <span class="location">${penguin.last_location || penguin.location}</span> ${timeInWords(Date.now() - (penguin.time_seen*1000))}`;
+				info.innerHTML += `Last seen <span class="location">${penguin.last_location || penguin.location || penguin.description}</span> ${timeInWords(Date.now() - (penguin.time_seen*1000))}`;
 				penguinLine.appendChild(info);
 			}
 		});
