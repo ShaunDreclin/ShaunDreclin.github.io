@@ -4,7 +4,7 @@
 	"appUrl":"/alt1/brokenhome/",
 	"configUrl":"/alt1/brokenhome/appconfig.json",
 	"iconUrl":"/alt1/brokenhome/icon.png",
-	"defaultWidth":475,
+	"defaultWidth":480,
 	"defaultHeight":550,
 	"activators":["Peek Door"]
 }
