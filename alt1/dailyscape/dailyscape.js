@@ -107,7 +107,7 @@ function drawTasks() {
 	
 	localStorage.savedTasks = JSON.stringify(savedTasks);
 	
-	document.body.style.overflow = scrollBar ? "scroll" : "hidden";
+	document.body.style.overflowY = scrollBar ? "auto" : "hidden";
 	localStorage.scrollBar = scrollBar || "";
 }
 
