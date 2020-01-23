@@ -71,3 +71,11 @@ input[name="task-interval"] {
 } input[name="task-interval"]+label {
 	line-height: 25px;
 }
+
+a, a:visited {
+	color: #AAF;
+	text-decoration: none;
+	font-size: 80%;
+} a:hover {
+	text-decoration: underline;
+}

@@ -4,6 +4,7 @@ const ONE_HOUR = ONE_MINUTE * 60;
 const ONE_DAY = ONE_HOUR * 24;
 
 let savedTasks = JSON.parse(localStorage.savedTasks || "[]");
+let scrollBar = localStorage.scrollBar || "";
 
 function getCountdown(timestamp) {
 	let days = Math.floor(timestamp / ONE_DAY).toString();
@@ -105,6 +106,9 @@ function drawTasks() {
 	}
 	
 	localStorage.savedTasks = JSON.stringify(savedTasks);
+	
+	document.body.style.overflow = scrollBar ? "scroll" : "hidden";
+	localStorage.scrollBar = scrollBar || "";
 }
 
 function addTask() {
@@ -120,6 +124,7 @@ function addTask() {
 
 document.querySelector("#task-name").addEventListener("keydown", e => { if (e.key == "Enter") { addTask(); } });
 document.querySelector("#task-submit").addEventListener("mousedown", e => { if (e.buttons == 1) { addTask(); } });
+document.querySelector("#scroll-bar").addEventListener("mousedown", e => { if (e.buttons == 1) { scrollBar = !scrollBar; } });
 
 setInterval(drawTasks, 100);
 drawTasks();
