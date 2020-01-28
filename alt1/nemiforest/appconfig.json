@@ -4,6 +4,6 @@
 	"appUrl":"/alt1/nemiforest/",
 	"configUrl":"/alt1/nemiforest/appconfig.json",
 	"iconUrl":"/alt1/nemiforest/icon.png",
-	"defaultWidth":500,
+	"defaultWidth":370,
 	"defaultHeight":400
 }
