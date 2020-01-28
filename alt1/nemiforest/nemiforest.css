@@ -1,0 +1,14 @@
+a {
+	position: absolute;
+	text-decoration: none;
+	color: white;
+	background: rgba(0,0,0,0.5);
+	padding: 2px 4px;
+	border-radius: 4px;
+} a:hover {
+	background: rgba(0,0,0,0.9);
+}
+
+img {
+	width: 144%;
+}

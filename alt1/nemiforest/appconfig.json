@@ -1,0 +1,9 @@
+{
+	"appName":"Nemi Forest",
+	"description":"Displays the last known full Nemi Forest map from /r/nemiforest subreddit",
+	"appUrl":"/alt1/nemiforest/",
+	"configUrl":"/alt1/nemiforest/appconfig.json",
+	"iconUrl":"/alt1/nemiforest/icon.png",
+	"defaultWidth":500,
+	"defaultHeight":400
+}
