@@ -1,0 +1,29 @@
+body {
+	background: #AAA !important;
+}
+
+#log {
+  margin-bottom: 10px;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.log-item {
+  margin: 1px 0 1px 0;
+}
+
+.log-item:last-of-type {
+  border-bottom: none;
+}
+
+.prefix {
+  font-weight: bold;
+}
+
+.error-item > .prefix {
+  color: red;
+}
+
+.timestamp {
+  font-size: 0.65em;
+}
