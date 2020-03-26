@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>New file</title>
+		<!-- <link rel="stylesheet" href="style.css"> -->
+		<script>
+			//https://stackoverflow.com/a/13106972/1354818
+			window.addEventListener('load', function(e) {
+				window.applicationCache.addEventListener('updateready', function(e) {
+					if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+						// Browser downloaded a new app cache.
+						// Swap it in and reload the page to get the new hotness.
+						window.applicationCache.swapCache();
+						if (confirm('A new version of this site is available. Load it?')) {
+							window.location.reload();
+						}
+					} else {
+						// Manifest didn't changed. Nothing new to server.
+					}
+	  			}, false);
+			}, false);
+		</script>
+	</head>
+	<body>
+		Hello World!
+	</body>
+</html>
