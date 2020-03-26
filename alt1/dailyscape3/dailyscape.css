@@ -1,0 +1,81 @@
+body>div {
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+
+#task-list>div {
+	padding: 0px 10px 0px 10px;
+	text-align: center;
+	border-bottom: 1px solid rgba(0,0,0,0.6);
+	color: rgba(255, 255, 255, 0.4);
+} #task-list>div:hover {
+	background: rgba(255,255,255,0.2);
+} #task-list>div.ready {
+	color: rgba(255, 255, 255, 1);
+} #task-list>div::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.name {
+	float: left;
+	font-size: 110%;
+	line-height: 30px;
+}
+
+.time {
+	float: right;
+	font-size: 120%;
+	font-weight: bold;
+	line-height: 30px;
+}
+
+.options {
+	float: right;
+	margin: 1px 0px 0px 7px;
+	font-size: 75%;
+	line-height: 9px;
+	color: rgba(255,255,255,0.2);
+} .options>div:hover {
+	color: rgba(255,255,255,1);
+	cursor: pointer;
+} #task-list>div:nth-of-type(1)>.options>div:nth-of-type(1),
+#task-list>div:nth-last-of-type(1)>.options>div:nth-last-of-type(1) {
+	visibility: hidden;
+}
+
+
+#task-input {
+	padding: 10px 0px 10px 0px;
+	text-align: center;
+}
+
+#task-name {
+	height: 25px;
+	width: 215px;
+	top: -2px;
+}
+
+#task-submit {
+	display: inline-block;
+	width: 195px;
+	margin-left: 7px;
+}
+
+input[name="task-interval"] {
+	margin-top: -2px;
+	vertical-align: middle;
+} input[name="task-interval"]+label {
+	line-height: 25px;
+}
+
+a, a:visited {
+	color: #AAF;
+	text-decoration: none;
+	font-size: 80%;
+} a:hover {
+	text-decoration: underline;
+}

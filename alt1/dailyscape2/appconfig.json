@@ -1,0 +1,10 @@
+{
+	"appName":"Dailyscape2",
+	"description":"A checklist for all of your daily, weekly, and monthly tasks.",
+	"appUrl":"/alt1/dailyscape2/",
+	"configUrl":"/alt1/dailyscape2/appconfig.json",
+	"iconUrl":"/alt1/dailyscape2/icon.png",
+	"defaultWidth":250,
+	"defaultHeight":500,
+	"activators":["Open Calendar", "Open Planner"]
+}
