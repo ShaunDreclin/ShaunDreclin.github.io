@@ -34,7 +34,7 @@ init();
 function overlaySpawned(uid) {
 	window.uid = uid;
 	let contents = {
-		url: window.location.origin + "/ovrt/arrow.html",
+		url: window.location.origin + "/ovrt/arrow/arrow.html",
 		width: 1000,
 		height: 1000
 	};
