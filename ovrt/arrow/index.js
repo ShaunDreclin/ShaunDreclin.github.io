@@ -3,7 +3,7 @@ function init() {
 		window.requestAnimationFrame(init);
 	} else {
 		document.querySelector("button#spawn").onclick = function() {
-			window.CloseOverlay(window.uid);
+			window.CloseOverlay(window.uid.toString());
 			
 			let transformInfo = {
 				posX: parseFloat(document.querySelector("#posX").value),
