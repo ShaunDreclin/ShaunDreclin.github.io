@@ -22,7 +22,7 @@ function init() {
 				shouldSave: !!document.querySelector("#shouldSave").checked
 			};
 			
-			console.log("transformInfo: ", transformInfo);
+			console.log(`transformInfo: ${transformInfo}`);
 			window.SpawnOverlay(JSON.stringify(transformInfo), "overlaySpawned");
 		};
 	}
@@ -37,8 +37,8 @@ function overlaySpawned(uid) {
 		height: 1000
 	};
 	
-	console.log("uid:", uid);
-	console.log("contents:", contents);
+	console.log(`uid: ${uid}`);
+	console.log(`contents: ${contents}`);
 	
 	window.SetContents(uid.toString(), 0, JSON.stringify(contents));
 }
