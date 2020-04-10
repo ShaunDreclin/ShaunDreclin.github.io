@@ -1,0 +1,91 @@
+* {
+	box-sizing: border-box;
+	user-select: none;
+}
+
+
+
+
+
+#controls {
+	float: right;
+	padding: 10px;
+}
+
+#volume {
+	display: none;
+}
+
+#edit-button {
+	z-index: 2;
+	position: relative;
+	top: -9px;
+}
+
+#edit-box {
+	z-index: 1;
+	visibility: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 100%;
+	margin: 0px;
+	border: none;
+	padding: 1em;
+	background: #333;
+	color: #FFF;
+	resize: none;
+	user-select: text;
+	-moz-tab-size: 4;
+			 tab-size: 4;
+}
+
+
+
+
+
+label {
+	display: block;
+	margin-top: 1em;
+	cursor: pointer;
+	font-size: 2.5em;
+	font-weight: bold;
+	color: #FFF;
+	text-shadow:
+		-1px -1px #000,
+		 0px -1px #000,
+		 1px -1px #000,
+		 1px  0px #000,
+		 1px  1px #000,
+		 0px  1px #000,
+		-1px  1px #000,
+		-1px  0px #000;
+} div:first-child > label {
+	margin-top: 0;
+}
+
+input.category-toggle, div.category {
+	display: none;
+} input.category-toggle:checked ~ div.category {
+	display: block;
+}
+
+
+
+
+
+button.sound {
+	margin: 0.25em;
+	border: 2px solid #000;
+	border-radius: 0.5em;
+	outline: none;
+	padding: 0.25em 0.5em;
+	background: #BBBBBB;
+	font-size: 2em;
+} button.sound:hover {
+	cursor: pointer;
+	background: #CACACA;
+} button.sound:active {
+	background: #C0C0C0;
+}

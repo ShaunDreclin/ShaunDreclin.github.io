@@ -1,0 +1,30 @@
+div#console {
+	clear: both;
+	margin-top: 5px;
+	height: 110px;
+	border: 1px solid #000;
+	overflow: auto;
+	word-wrap: break-word;
+	font-size: 0.8em;
+	font-family: 'courier new';
+}
+
+div#console:empty {
+	display: none;
+}
+
+div#console .log-item {
+	margin: 1px 0 1px 0;
+}
+
+div#console .prefix {
+	font-weight: bold;
+}
+
+div#console .error-item > .prefix {
+	color: red;
+}
+
+div#console .timestamp {
+	font-size: 0.65em;
+}

@@ -1,0 +1,17 @@
+body {
+	background: #DDD !important;
+	font-family: helvetica;
+}
+
+div.left {
+	float: left;
+} div.left input {
+	width: 120px;
+}
+
+div.right {
+	float: right;
+	text-align: right;
+} div.right input {
+	width: 50px;
+}
