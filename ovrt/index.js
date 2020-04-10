@@ -11,6 +11,53 @@ function init() {
 			});
 		}
 		
+		for (let preset of document.querySelectorAll("button[id^=preset-]")) {
+			switch (preset.id.split("-")[1]) {
+				case "arrow":
+					preset.addEventListener("click", event => {
+						document.querySelector("#posX").value = 0.001;
+						document.querySelector("#posY").value = 0.001;
+						document.querySelector("#posZ").value = 0.001;
+						document.querySelector("#rotX").value = 90.0;
+						document.querySelector("#rotY").value = 0.0;
+						document.querySelector("#rotZ").value = 0.0;
+						document.querySelector("#size").value = 0.15;
+						document.querySelector("#opacity").value = 0.5;
+						document.querySelector("#curvature").value = 0.0;
+						document.querySelector("#framerate").value = 1;
+						document.querySelector("#ecoMode").checked = true;
+						document.querySelector("#lookHiding").checked = false;
+						document.querySelector("#attachedDevice").value = 0;
+						document.querySelector("#shouldSave").checked = true;
+						document.querySelector("#url").value = "/ovrt/arrow.html";
+						document.querySelector("#width").value = 1000;
+						document.querySelector("#height").value = 1000;
+					});
+					break;
+				case "soundboard":
+					preset.addEventListener("click", event => {
+						document.querySelector("#posX").value = 0.001;
+						document.querySelector("#posY").value = 0.001;
+						document.querySelector("#posZ").value = 0.001;
+						document.querySelector("#rotX").value = 90.0;
+						document.querySelector("#rotY").value = 0.0;
+						document.querySelector("#rotZ").value = 0.0;
+						document.querySelector("#size").value = 0.3;
+						document.querySelector("#opacity").value = 1.0;
+						document.querySelector("#curvature").value = 0.0;
+						document.querySelector("#framerate").value = 60;
+						document.querySelector("#ecoMode").checked = true;
+						document.querySelector("#lookHiding").checked = false;
+						document.querySelector("#attachedDevice").value = 3;
+						document.querySelector("#shouldSave").checked = true;
+						document.querySelector("#url").value = "/ovrt/soundboard.html";
+						document.querySelector("#width").value = 1000;
+						document.querySelector("#height").value = 2000;
+					});
+					break;
+			}
+		}
+		
 		document.querySelector("button#spawn").addEventListener("click", event => {
 			if (window.uid !== undefined) {
 				window.CloseOverlay(window.uid.toString());

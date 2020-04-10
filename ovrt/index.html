@@ -12,25 +12,29 @@
 		<a href="">Reload</a><br>
 		<br>
 		<div class="left">
-			<input id="url" value="/soundboard.html"><label for="url">: url</label><br>
+			<input id="url" value="/"><label for="url">: url</label><br>
 			<input id="width" value="1000"><label for="width">: width</label><br>
 			<input id="height" value="1000"><label for="height">: height</label><br>
+			<br>
+			Presets:<br>
+			<button id="preset-arrow">Arrow</button><br>
+			<button id="preset-soundboard">Soundboard</button>
 		</div>
 		<div class="right">
-			<label for="posX">posX: </label><input id="posX" value="0.001"><br>
-			<label for="posY">posY: </label><input id="posY" value="0.001"><br>
-			<label for="posZ">posZ: </label><input id="posZ" value="0.001"><br>
-			<label for="rotX">rotX: </label><input id="rotX" value="90"><br>
+			<label for="posX">posX: </label><input id="posX" value="0.0"><br>
+			<label for="posY">posY: </label><input id="posY" value="0.0"><br>
+			<label for="posZ">posZ: </label><input id="posZ" value="0.0"><br>
+			<label for="rotX">rotX: </label><input id="rotX" value="0.0"><br>
 			<label for="rotY">rotY: </label><input id="rotY" value="0.0"><br>
 			<label for="rotZ">rotZ: </label><input id="rotZ" value="0.0"><br>
-			<label for="size">size: </label><input id="size" value="0.15"><br>
-			<label for="opacity">opacity: </label><input id="opacity" value="0.5"><br>
+			<label for="size">size: </label><input id="size" value="1.0"><br>
+			<label for="opacity">opacity: </label><input id="opacity" value="1.0"><br>
 			<label for="curvature">curvature: </label><input id="curvature" value="0.0"><br>
 			<label for="framerate">framerate: </label><input id="framerate" value="60"><br>
-			<label for="ecoMode">ecoMode: </label><input id="ecoMode" type="checkbox" checked><br>
+			<label for="ecoMode">ecoMode: </label><input id="ecoMode" type="checkbox"><br>
 			<label for="lookHiding">lookHiding: </label><input id="lookHiding" type="checkbox"><br>
-			<label for="attachedDevice">attachedDevice: </label><input id="attachedDevice" value="2"><br>
-			<label for="shouldSave">shouldSave: </label><input id="shouldSave" type="checkbox" checked><br>
+			<label for="attachedDevice">attachedDevice: </label><input id="attachedDevice" value="0"><br>
+			<label for="shouldSave">shouldSave: </label><input id="shouldSave" type="checkbox"><br>
 			<button id="spawn">Spawn</button><br>
 		</div>
 		<div id="console"></div>
