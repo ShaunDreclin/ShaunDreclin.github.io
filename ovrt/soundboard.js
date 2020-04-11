@@ -32,9 +32,7 @@ function init() {
 			}
 		});
 		
-		
-		
-		
+		/**************/
 		
 		let clip = new Audio();
 		clip.addEventListener("canplaythrough", event => {
@@ -42,12 +40,9 @@ function init() {
 			clip.play();
 		});
 		
-		
-		
-		
+		/**************/
 		
 		let soundboard = document.querySelector("#soundboard");
-		window.addEventListener("load", event => { drawSoundboard(); });
 		function drawSoundboard() {
 			soundboard.innerHTML = "";
 			
@@ -72,20 +67,30 @@ function init() {
 					let caption = sound[0];
 					let url = sound[1];
 					
-					let button = document.createElement("button");
-					button.innerHTML = caption;
-					button.classList.add("sound");
-					buttons.appendChild(button);
-
-					button.addEventListener("mousedown", event => {
-						clip.src = /^https?:\/\//.test(url) ? url : `https://www.myinstants.com/media/sounds/${url}.mp3`;
-					});
+					if (caption == "\n") {
+						let br = document.createElement("br");
+						buttons.appendChild(br);
+					} else if (caption == "\t") {
+						let spacer = document.createElement("div");
+						spacer.classList.add("spacer");
+						buttons.appendChild(spacer);
+					} else {
+						let button = document.createElement("button");
+						button.innerHTML = caption;
+						button.classList.add("sound");
+						buttons.appendChild(button);
+	
+						button.addEventListener("mousedown", event => {
+							clip.src = /^https?:\/\//.test(url) ? url : `https://www.myinstants.com/media/sounds/${url}.mp3`;
+						});
+					}
 				}
 				
 				categoryDiv.appendChild(buttons);
 				soundboard.appendChild(categoryDiv);
 			}
 		}
+		drawSoundboard();
 	}
 }
 init();

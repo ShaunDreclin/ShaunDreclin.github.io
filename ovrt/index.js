@@ -1,14 +1,12 @@
+const PATH = "/ovrt/";
+
 function init() {
 	if (!window.SpawnOverlay || !window.SetContents || !window.CloseOverlay || !window.SetKeyboardFocus) {
 		window.requestAnimationFrame(init);
 	} else {
 		for (let input of document.querySelectorAll("input")) {
-			input.addEventListener("focus", event => {
-				window.SetKeyboardFocus(true);
-			});
-			input.addEventListener("blur", event => {
-				window.SetKeyboardFocus(false);
-			});
+			input.addEventListener("focus", event => { window.SetKeyboardFocus(true); });
+			input.addEventListener("blur", event => { window.SetKeyboardFocus(false); });
 		}
 		
 		for (let preset of document.querySelectorAll("button[id^=preset-]")) {
@@ -29,7 +27,7 @@ function init() {
 						document.querySelector("#lookHiding").checked = false;
 						document.querySelector("#attachedDevice").value = 0;
 						document.querySelector("#shouldSave").checked = true;
-						document.querySelector("#url").value = "/ovrt/arrow.html";
+						document.querySelector("#url").value = "arrow.html";
 						document.querySelector("#width").value = 1000;
 						document.querySelector("#height").value = 1000;
 					});
@@ -50,9 +48,9 @@ function init() {
 						document.querySelector("#lookHiding").checked = false;
 						document.querySelector("#attachedDevice").value = 3;
 						document.querySelector("#shouldSave").checked = true;
-						document.querySelector("#url").value = "/ovrt/soundboard.html";
-						document.querySelector("#width").value = 1000;
-						document.querySelector("#height").value = 2000;
+						document.querySelector("#url").value = "soundboard.html";
+						document.querySelector("#width").value = 500;
+						document.querySelector("#height").value = 1000;
 					});
 					break;
 			}
@@ -90,7 +88,7 @@ init();
 function overlaySpawned(uid) {
 	window.uid = uid;
 	let contents = {
-		url: window.location.origin + document.querySelector("#url").value,
+		url: window.location.origin + PATH + document.querySelector("#url").value,
 		width: parseFloat(document.querySelector("#width").value),
 		height: parseFloat(document.querySelector("#height").value)
 	};

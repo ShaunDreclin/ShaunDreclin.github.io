@@ -3,13 +3,26 @@
 	user-select: none;
 }
 
+html {
+	height: 100%;
+}
 
+body {
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	display: grid;
+	grid-template-rows: 1fr auto;
+}
 
+#content {
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
 
+/**************/
 
 #controls {
 	float: right;
-	padding: 10px;
 }
 
 #volume {
@@ -17,9 +30,10 @@
 }
 
 #edit-button {
+	position: fixed;
+	right: 10px;
+	bottom: 10px;
 	z-index: 2;
-	position: relative;
-	top: -9px;
 }
 
 #edit-box {
@@ -41,15 +55,13 @@
 			 tab-size: 4;
 }
 
-
-
-
+/**************/
 
 label {
-	display: block;
+	display: inline-block;
 	margin-top: 1em;
 	cursor: pointer;
-	font-size: 2.5em;
+	font-size: 1.5em;
 	font-weight: bold;
 	color: #FFF;
 	text-shadow:
@@ -61,8 +73,6 @@ label {
 		 0px  1px #000,
 		-1px  1px #000,
 		-1px  0px #000;
-} div:first-child > label {
-	margin-top: 0;
 }
 
 input.category-toggle, div.category {
@@ -71,21 +81,21 @@ input.category-toggle, div.category {
 	display: block;
 }
 
-
-
-
-
 button.sound {
 	margin: 0.25em;
 	border: 2px solid #000;
 	border-radius: 0.5em;
 	outline: none;
 	padding: 0.25em 0.5em;
-	background: #BBBBBB;
-	font-size: 2em;
+	background: #BBB;
 } button.sound:hover {
 	cursor: pointer;
-	background: #CACACA;
+	background: #DDD;
 } button.sound:active {
-	background: #C0C0C0;
+	background: #CCC;
+}
+
+.spacer {
+	display: inline-block;
+	width: 50px;
 }
