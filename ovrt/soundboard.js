@@ -12,9 +12,9 @@ function init() {
 			clip.play();
 		});
 		
-		 /***********\
-		|	Controls	|
-		\***********/
+		 /*********\
+		| Controls |
+		\*********/
 		
 		let volume = document.querySelector("#volume");
 		volume.addEventListener("input", event => {
@@ -67,9 +67,9 @@ function init() {
 		
 		
 		
-		 /***************************\
-		|	Text-To-Speech Functions	|
-		\***************************/
+		 /*************************\
+		| Text-To-Speech Functions |
+		\*************************/
 
 		window.speechSynthesis.addEventListener('voiceschanged', function() { populateVoiceList(); });
 		function populateVoiceList() {
@@ -110,9 +110,9 @@ function init() {
 		
 		
 		
-		 /*********************\
-		|	Soundboard Drawing	|
-		\*********************/
+		 /*******************\
+		| Soundboard Drawing |
+		\*******************/
 		
 		let soundboard = document.querySelector("#soundboard");
 		function drawSoundboard() {
