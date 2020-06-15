@@ -7,6 +7,7 @@ div#console {
 	word-wrap: break-word;
 	font-size: 0.8em;
 	font-family: 'courier new';
+	user-select: text;
 }
 
 div#console:empty {

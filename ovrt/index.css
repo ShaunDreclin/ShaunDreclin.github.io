@@ -1,3 +1,8 @@
+* {
+	box-sizing: border-box;
+	user-select: none;
+}
+
 body {
 	background: #DDD !important;
 	font-family: helvetica;
@@ -7,6 +12,7 @@ div.left {
 	float: left;
 } div.left input {
 	width: 120px;
+	user-select: text;
 }
 
 div.right {
@@ -14,4 +20,5 @@ div.right {
 	text-align: right;
 } div.right input {
 	width: 50px;
+	user-select: text;
 }

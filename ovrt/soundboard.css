@@ -15,6 +15,7 @@ body {
 }
 
 #content {
+	padding: 20px;
 	grid-row-start: 2;
 	grid-row-end: 3;
 }
@@ -52,6 +53,7 @@ body {
 	color: #FFF;
 	resize: none;
 	user-select: text;
+	outline: none;
 	white-space: pre;
 	-moz-tab-size: 2;
 			 tab-size: 2;
@@ -90,7 +92,7 @@ button.sound {
 	border: 2px solid #000;
 	border-radius: 0.5em;
 	outline: none;
-	padding: 0.25em 0.5em;
+	padding: 0.5em;
 	background: #BBB;
 } button.sound:hover {
 	cursor: pointer;
@@ -102,11 +104,4 @@ button.sound {
 .spacer {
 	display: inline-block;
 	width: 50px;
-}
-
-.tts-text, .tts-voice {
-	display: block;
-	width: 85%;
-	font-size: 1.05em;
-	margin-bottom: 1px;
 }

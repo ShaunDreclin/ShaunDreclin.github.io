@@ -1,0 +1,68 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	display: grid;
+	grid-template-rows: 1fr auto;
+}
+
+#content {
+	padding: 20px;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+/**************/
+
+#controls {
+	float: right;
+}
+
+#edit-button {
+	position: fixed;
+	font-size: 1.2em;
+	right: 20px;
+	bottom: 30px;
+	z-index: 3;
+}
+
+#edit-box {
+	z-index: 2;
+	visibility: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 100%;
+	margin: 0px;
+	border: none;
+	padding: 1em;
+	background: #333;
+	color: #FFF;
+	resize: none;
+	outline: none;
+	white-space: pre;
+	-moz-tab-size: 2;
+	tab-size: 2;
+}
+
+/**************/
+
+#tts-text {
+	width: 85%;
+	font-size: 1.5em;
+}
+
+#tts-voice {
+	width: 5%;
+	font-size: 1.5em;
+	margin-left: 1px;
+	padding: 2px;
+}

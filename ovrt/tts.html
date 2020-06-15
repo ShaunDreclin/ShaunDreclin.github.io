@@ -2,17 +2,19 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Soundboard</title>
+		<title>TTS</title>
 		<link rel="stylesheet" href="console.css">
-		<link rel="stylesheet" href="soundboard.css">
+		<link rel="stylesheet" href="tts.css">
 		<!--<script src="console.js" defer></script>-->
-		<script src="soundboard.js" defer></script>
+		<script src="tts.js" defer></script>
 	</head>
 	<body>
 		<div id="content">
-			<div id="soundboard"></div>
+			<div id="tts">
+				<input type="text" id="tts-text" spellcheck="false">
+				<select id="tts-voice"></select>
+			</div>
 			<div id="controls">
-				<input type="range" id="volume" value="100">
 				<button id="edit-button">Edit</button>
 				<textarea id="edit-box" spellcheck="false"></textarea>
 			</div>
