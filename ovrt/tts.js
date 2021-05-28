@@ -205,6 +205,7 @@ function init() {
 			let selectedVoice = ttsVoice.selectedOptions.length > 0 ? ttsVoice.selectedOptions[0] : null;
 			ttsVoice.innerHTML = "";
 
+			/*
 			fetch('https://cors-anywhere.herokuapp.com/' + ttsData.keys[0][1] + '/v1/voices', {
 				method: 'GET',
 				headers: new Headers({
@@ -226,13 +227,24 @@ function init() {
 					option.dataset.description = voice.description;
 					ttsVoice.appendChild(option);
 				}
+				*/
 
+				let voices = ["en-AU_CraigVoice", "en-AU_MadisonVoice", "en-GB_CharlotteV3Voice", "en-GB_JamesV3Voice", "en-GB_KateVoice", "en-GB_KateV3Voice", "en-US_AllisonVoice", "en-US_AllisonV3Voice", "en-US_EmilyV3Voice", "en-US_HenryV3Voice", "en-US_KevinV3Voice", "en-US_LisaVoice", "en-US_LisaV3Voice", "en-US_MichaelVoice", "en-US_MichaelV3Voice", "en-US_OliviaV3Voice"];
+				for (let voice of voices) {
+					let option = document.createElement('option');
+					option.textContent = voice;
+					option.dataset.name = voice;
+					ttsVoice.appendChild(option);
+				}
+				
 				if (selectedVoice != null) {
 					for (let option of ttsVoice.querySelectorAll('option')) {
 						if (option.dataset.name == selectedVoice.dataset.name) { option.selected = true; }
 					}
 				}
+			/*
 			});
+			*/
 		}
 		updateVoices();
 	}
