@@ -20,7 +20,7 @@ function timeInWords(timestamp) {
 }
 
 function update() {
-	fetch('https://thingproxy.freeboard.io/fetch/https://jq.world60pengs.com/rest/cache/actives.json')
+	fetch('https://api.allorigins.win/raw?url=https://jq.world60pengs.com/rest/cache/actives.json')
 		.then(response => response.json())
 		.then(penguins => {
 			let bear = penguins.Bear[0];
