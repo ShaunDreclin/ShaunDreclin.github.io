@@ -35,17 +35,19 @@
 			} a:hover {
 				text-decoration: underline;
 			}
+			#footer {
+				position: absolute;
+				bottom: 10px;
+				left: 50%;
+				transform: translate(-50%, 0);
+				color: #FFF;
+				text-align: center;
+				font-size: 10px;
+			}
+			#footer a, #footer a:visited {
+				color: #7EF;
+			}
 		</style>
-		
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159125148-1"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			
-			gtag('config', 'UA-159125148-1');
-		</script>
 	</head>
 	<body>
 		<div id="content">
@@ -57,10 +59,8 @@
 			A quick guide for Broken Home replays.<br>
 			<br>
 			<a href="penguins/">Penguin Tracker</a><br>
-			A list of world 60 penguin locations.<br>
-			<br>
-			<a href="nemiforest/">Nemi Forest</a><br>
-			A Modified Nemi Forest app without a legend.
+			A list of world 60 penguin locations.
 		</div>
+		<div id="footer"><a target="_blank" href="https://paypal.me/shaundreclin">Appreciate my work? Toss me a couple bucks!</a></div>
 	</body>
 </html>
