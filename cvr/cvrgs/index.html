@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CVR Growth System</title>
+		<style>
+			body {
+				background: #FFF;
+				font-family: Consolas, monospace;
+				font-size: 14px;
+                white-space: pre-wrap;
+			}
+			a, a:visited {
+				text-decoration: none;
+				color: #00F;
+			} a:hover {
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body>CVR Growth System v1.0.0 by Shaun Dreclin
+<a href="https://shaun.us.to/cvr/cvrgs">https://shaun.us.to/cvr/cvrgs</a>
+
+A freely available standard to help content creators make compatible growth-related avatars and props. Suggestions for additional pointers (and other general comments/questions) should be directed to Shaun#1680 on Discord.
+
+-----
+
+Public CVRGS Props: [Public props aren't a thing yet, DM me and I'll send it]
+CVRGS Laser
+
+Public CVRGS Avatars:
+[TBD]
+
+-----
+
+CVRGS is available in two modes, "Aim" and "Area". An avatar can (and should) be set up to work with both modes.
+- Aim mode works on specific parts of the avatar, targeting any parameter.
+- Area mode works on the whole avatar, targeting specific parameters.
+
+-----
+
+Aim pointers:
+CVRGS_Add
+CVRGS_Subtract
+
+Area pointers:
+CVRGS_Scale_Add
+CVRGS_Scale_Subtract
+CVRGS_Muscle_Add
+CVRGS_Muscle_Subtract
+CVRGS_Fat_Add
+CVRGS_Fat_Subtract
+CVRGS_Chest_Add
+CVRGS_Chest_Subtract
+CVRGS_Butt_Add
+CVRGS_Butt_Subtract
+CVRGS_Hips_Add
+CVRGS_Hips_Subtract
+CVRGS_PP_Add
+CVRGS_PP_Subtract
+
+-----
+
+Usage (Avatars, Aim mode):
+Follow these steps twice, once for Add and again for Subtract.
+1. Create an empty game object on your armature (Whichever bone you want the trigger to be on)
+2. Add the "CVR Advanced Avatar Settings Trigger" script to it
+3. Resize the trigger area to cover the desired body part
+4. Use the following settings:
+   - Enabled Advanced Mode:   Checked
+   - Allowed Types Size:      1
+   - Allowed Types Element 0: CVRGS_Add / CVRGS_Subtract
+   - On Stay Trigger:         (Click the plus button)
+   - Setting Name:            (Whichever parameter affects the body part your trigger is on)
+   - Update Method:           Add / Subtract
+   - Change per sec:          0.01 (Keep it low, CVRGS props will multiply this value)
+5. (Optional/Advanced) Create animations to disable the add/subtract triggers when the parameter has reached it's maximum/minimum value
+
+
+
+Usage (Avatars, Area mode):
+Follow these steps twice, once for Add and again for Subtract.
+1. Create an empty game object on your armature (Hips recommended)
+2. Add the "CVR Advanced Avatar Settings Trigger" script to it
+3. Resize the trigger area to cover your avatar's head, torso, and legs.
+4. Use the following settings:
+   - Enabled Advanced Mode:   Checked
+   - Allowed Types Size:      1
+   - Allowed Types Element 0: CVRGS_Scale_Add / CVRGS_Scale_Subtract (Or other area pointers, listed above)
+   - On Stay Trigger:         (Click the plus button)
+   - Setting Name:            Scale (Whichever parameter goes with your pointer)
+   - Update Method:           Add / Subtract
+   - Change per sec:          0.01 (Keep it low, CVRGS props will multiply this value)
+5. (Optional/Advanced) Create animations to disable the add/subtract triggers when the parameter has reached it's maximum/minimum value
+
+
+
+Usage (Props):
+1. Add a pointer from the list above to your prop
+2. Add a collider to the game object the pointer is on (set to trigger) to give it a shape
+3. Set up toggles/animations to turn the pointer on and off as desired.
+
+Note: stacking multiple pointers of the same type will create a more powerful effect
+
+-----
+
+Appreciate my work? Toss me a couple bucks! <a target="_blank" href="https://paypal.me/shaundreclin">https://paypal.me/shaundreclin</a></body>
+</html>
