@@ -16,9 +16,12 @@
 			} a:hover {
 				text-decoration: underline;
 			}
+			.hide {
+				display: none;
+			}
 		</style>
 	</head>
-	<body>CVR Growth System v1.0.0 by Shaun Dreclin
+	<body>CVR Growth System 1.0.0 by Shaun Dreclin
 <a href="https://shaun.us.to/cvr/cvrgs">https://shaun.us.to/cvr/cvrgs</a>
 
 A freely available standard to help content creators make compatible growth-related avatars and props. Suggestions for additional pointers (and other general comments/questions) should be directed to Shaun#1680 on Discord.
@@ -33,15 +36,11 @@ Public CVRGS Avatars:
 
 -----
 
-CVRGS is available in two modes, "Aim" and "Area". An avatar can (and should) be set up to work with both modes.
-- Aim mode works on specific parts of the avatar, targeting any parameter.
+CVRGS is available in two modes, "Area" and "Aim". An avatar can (and should) be set up to work with both modes.
 - Area mode works on the whole avatar, targeting specific parameters.
+- Aim mode works on specific parts of the avatar, targeting any parameter.
 
 -----
-
-Aim pointers:
-CVRGS_Add
-CVRGS_Subtract
 
 Area pointers:
 CVRGS_Scale_Add
@@ -56,29 +55,18 @@ CVRGS_Butt_Add
 CVRGS_Butt_Subtract
 CVRGS_Hips_Add
 CVRGS_Hips_Subtract
-CVRGS_PP_Add
+CVRGS_Feet_Add
+CVRGS_Feet_Subtract
+<div id="hide" class="hide">CVRGS_PP_Add
 CVRGS_PP_Subtract
 CVRGS_Balls_Add
-CVRGS_Balls_Subtract
+CVRGS_Balls_Subtract</div><a href="#" onclick="document.getElementById('hide').classList.toggle('hide'); return false" style="cursor: help;" title="Show more pointers - NSFW, 18+ Only!">↕ ↕ ↕</a>
+
+Aim pointers:
+CVRGS_Add
+CVRGS_Subtract
 
 -----
-
-Usage (Avatars, Aim mode):
-Follow these steps twice, once for Add and again for Subtract.
-1. Create an empty game object on your armature (Whichever bone you want the trigger to be on)
-2. Add the "CVR Advanced Avatar Settings Trigger" script to it
-3. Resize the trigger area to cover the desired body part
-4. Use the following settings:
-   - Enabled Advanced Mode:   Checked
-   - Allowed Types Size:      1
-   - Allowed Types Element 0: CVRGS_Add / CVRGS_Subtract
-   - On Stay Trigger:         (Click the plus button)
-   - Setting Name:            (Whichever parameter affects the body part your trigger is on)
-   - Update Method:           Add / Subtract
-   - Change per sec:          0.01 (Keep it low, CVRGS props will multiply this value)
-5. (Optional/Advanced) Create animations to disable the add/subtract triggers when the parameter has reached it's maximum/minimum value
-
-
 
 Usage (Avatars, Area mode):
 Follow these steps twice, once for Add and again for Subtract.
@@ -91,6 +79,23 @@ Follow these steps twice, once for Add and again for Subtract.
    - Allowed Types Element 0: CVRGS_Scale_Add / CVRGS_Scale_Subtract (Or other area pointers, listed above)
    - On Stay Trigger:         (Click the plus button)
    - Setting Name:            Scale (Whichever parameter goes with your pointer)
+   - Update Method:           Add / Subtract
+   - Change per sec:          0.01 (Keep it low, CVRGS props will multiply this value)
+5. (Optional/Advanced) Create animations to disable the add/subtract triggers when the parameter has reached it's maximum/minimum value
+
+
+
+Usage (Avatars, Aim mode):
+Follow these steps twice, once for Add and again for Subtract.
+1. Create an empty game object on your armature (Whichever bone you want the trigger to be on)
+2. Add the "CVR Advanced Avatar Settings Trigger" script to it
+3. Resize the trigger area to cover the desired body part
+4. Use the following settings:
+   - Enabled Advanced Mode:   Checked
+   - Allowed Types Size:      1
+   - Allowed Types Element 0: CVRGS_Add / CVRGS_Subtract
+   - On Stay Trigger:         (Click the plus button)
+   - Setting Name:            (Whichever parameter affects the body part your trigger is on)
    - Update Method:           Add / Subtract
    - Change per sec:          0.01 (Keep it low, CVRGS props will multiply this value)
 5. (Optional/Advanced) Create animations to disable the add/subtract triggers when the parameter has reached it's maximum/minimum value
