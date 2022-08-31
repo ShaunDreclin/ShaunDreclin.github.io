@@ -32,6 +32,24 @@
 				padding: 5px;
 				opacity: 0;
 			}
+
+			.lightbox-off {
+				float: right;
+				margin-right: 10px;
+				cursor: pointer;
+			} .lightbox-off>img {
+				box-shadow: 0 0 3px #000;
+			} .lightbox-on {
+				position: fixed;
+				top: 0; left: 0;
+				width: 100%; height: 100%;
+				background: rgba(0, 0, 0, 0.5);
+			} .lightbox-on>img {
+				position: fixed;
+				top: 50%; left: 50%;
+				transform: translate(-50%, -50%);
+				max-height: 100000px !important;
+			}
 		</style>
 		<script>
 			document.onmousemove = (e) => {
@@ -67,13 +85,7 @@ Public CVRGS Avatars:
 
 -----
 
-CVRGS is available in two modes, "Area" and "Aim". An avatar can (and should) be set up to work with both modes.
-- Area mode works on the whole avatar, targeting specific parameters.
-- Aim mode works on specific parts of the avatar, targeting any parameter.
-
------
-
-Area pointers:
+Pointers:
 <span class="box" onclick="copy(this);" style="background-color: #f58231;" title="#f58231">  </span>CVRGS_Scale_Add
 <span class="box" onclick="copy(this);" style="background-color: #db6816;" title="#db6816">  </span>CVRGS_Scale_Subtract
 <span class="box" onclick="copy(this);" style="background-color: #4363d8;" title="#4363d8">  </span>CVRGS_Muscle_Add
@@ -93,30 +105,48 @@ Area pointers:
 <span class="box" onclick="copy(this);" style="background-color: #ffe119;" title="#ffe119">  </span>CVRGS_Balls_Add
 <span class="box" onclick="copy(this);" style="background-color: #f2d40c;" title="#f2d40c">  </span>CVRGS_Balls_Subtract</div><a href="#" onclick="document.getElementById('hide').classList.toggle('hide'); return false" style="cursor: help;" title="Show more pointers - NSFW, 18+ Only!">↕ ↕ ↕</a>
 
-Aim pointers:
-<span class="box" onclick="copy(this);" style="background-color: #00ff00;" title="#00ff00">  </span>CVRGS_Add
-<span class="box" onclick="copy(this);" style="background-color: #ff0000;" title="#ff0000">  </span>CVRGS_Subtract
+-----
 
-(Colours are suggested for consistency between props)
+Usage (Avatars):<div class="lightbox-off" onclick="this.classList.toggle('lightbox-on');"><img src="usage.png" style="max-height: 270px;"></div>
+1. Create an empty game object on your armature (Hips recommended)
+2. Add the "CVR Advanced Avatar Settings Trigger" script to it
+3. Resize the trigger area to cover your avatar's head, torso, and legs
+4. Use the following settings:
+   - Enabled Advanced Mode:          Checked
+   - Allowed Types Size:             1
+   - Allowed Types Element 0:        CVRGS_Scale_Add (Or another pointer, listed above)
+   - On Stay Trigger Setting Name:   Scale
+   - On Stay Trigger Update Method:  Add
+   - On Stay Trigger Change per sec: 0.01 (Keep it low, CVRGS props will multiply this value)
+5. Duplicate the game object and change the following settings:
+   - Allowed Types Element 0:        CVRGS_Scale_Subtract
+   - On Stay Trigger Update Method:  Subtract
+
+Optional: Create animations to disable the add/subtract triggers when the parameter has reached it's max/min value
 
 -----
 
-Usage (Avatars, Area mode):
-Follow these steps twice, once for Add and again for Subtract.
-1. Create an empty game object on your armature (Hips recommended)
-2. Add the "CVR Advanced Avatar Settings Trigger" script to it
-3. Resize the trigger area to cover your avatar's head, torso, and legs.
-4. Use the following settings:
-   - Enabled Advanced Mode:   Checked
-   - Allowed Types Size:      1
-   - Allowed Types Element 0: CVRGS_Scale_Add / CVRGS_Scale_Subtract (Or other area pointers, listed above)
-   - On Stay Trigger:         (Click the plus button)
-   - Setting Name:            Scale (Whichever parameter goes with your pointer)
-   - Update Method:           Add / Subtract
-   - Change per sec:          0.01 (Keep it low, CVRGS props will multiply this value)
-5. (Optional/Advanced) Create animations to disable the add/subtract triggers when the parameter has reached it's maximum/minimum value
+Usage (Props):
+1. Add a pointer from the list above to your prop
+2. Add a collider to the game object the pointer is on (set to trigger) to give it a shape
+3. Set up toggles/animations to turn the pointer on and off as desired
 
+Note: Stacking multiple pointers of the same type will create a more powerful effect
+Optional: Use the colours suggested above for consistency between props
 
+-----
+
+Appreciate my work? Toss me a couple bucks! <a target="_blank" href="https://paypal.me/shaundreclin">https://paypal.me/shaundreclin</a></body>
+<!-- (Just an idea, may or may not implement later)
+CVRGS is available in two modes, "Area" and "Aim". An avatar can (and should) be set up to work with both modes.
+- Area mode works on the whole avatar, targeting specific parameters.
+- Aim mode works on specific parts of the avatar, targeting any parameter.
+
+-----
+
+Aim pointers:
+<span class="box" onclick="copy(this);" style="background-color: #00ff00;" title="#00ff00">  </span>CVRGS_Add
+<span class="box" onclick="copy(this);" style="background-color: #ff0000;" title="#ff0000">  </span>CVRGS_Subtract
 
 Usage (Avatars, Aim mode):
 Follow these steps twice, once for Add and again for Subtract.
@@ -132,17 +162,5 @@ Follow these steps twice, once for Add and again for Subtract.
    - Update Method:           Add / Subtract
    - Change per sec:          0.01 (Keep it low, CVRGS props will multiply this value)
 5. (Optional/Advanced) Create animations to disable the add/subtract triggers when the parameter has reached it's maximum/minimum value
-
-
-
-Usage (Props):
-1. Add a pointer from the list above to your prop
-2. Add a collider to the game object the pointer is on (set to trigger) to give it a shape
-3. Set up toggles/animations to turn the pointer on and off as desired.
-
-Note: stacking multiple pointers of the same type will create a more powerful effect
-
------
-
-Appreciate my work? Toss me a couple bucks! <a target="_blank" href="https://paypal.me/shaundreclin">https://paypal.me/shaundreclin</a></body>
+-->
 </html>
