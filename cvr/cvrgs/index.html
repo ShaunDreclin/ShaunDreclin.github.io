@@ -19,9 +19,40 @@
 			.hide {
 				display: none;
 			}
+			.box {
+				box-shadow: inset 0 0 3px 2px #FFF, inset 0 0 3px 2px #FFF, inset 0 0 3px 2px #FFF;
+				cursor: help;
+				user-select: none;
+			}
+			#popup {
+				border-radius: 5px;
+				box-shadow: 1px 1px 3px 2px #000;
+				position: fixed;
+				background: #FFF;
+				padding: 5px;
+				opacity: 0;
+			}
 		</style>
+		<script>
+			document.onmousemove = (e) => {
+				let popup = document.querySelector('#popup');
+				popup.style.left = e.clientX + 10 + 'px';
+				popup.style.top = e.clientY - 30 + 'px';
+				popup.style.transition = 'opacity 1s';
+				popup.style.opacity = '0';
+			};
+
+			function copy(obj) {
+				navigator.clipboard.writeText(obj.title).then(() => {
+					let popup = document.querySelector('#popup');
+					popup.innerHTML = `Copied hex <span class="box" style="background-color: ${obj.title};">  </span>${obj.title} to clipboard`;
+					popup.style.transition = '';
+					popup.style.opacity = '1';
+				});
+			}
+		</script>
 	</head>
-	<body>CVR Growth System 1.0.0 by Shaun Dreclin
+	<body><div id="popup"></div>CVR Growth System 1.0.0 by Shaun Dreclin
 <a href="https://shaun.us.to/cvr/cvrgs">https://shaun.us.to/cvr/cvrgs</a>
 
 A freely available standard to help content creators make compatible growth-related avatars and props. Suggestions for additional pointers (and other general comments/questions) should be directed to Shaun#1680 on Discord.
@@ -43,28 +74,30 @@ CVRGS is available in two modes, "Area" and "Aim". An avatar can (and should) be
 -----
 
 Area pointers:
-CVRGS_Scale_Add
-CVRGS_Scale_Subtract
-CVRGS_Muscle_Add
-CVRGS_Muscle_Subtract
-CVRGS_Fat_Add
-CVRGS_Fat_Subtract
-CVRGS_Chest_Add
-CVRGS_Chest_Subtract
-CVRGS_Butt_Add
-CVRGS_Butt_Subtract
-CVRGS_Hips_Add
-CVRGS_Hips_Subtract
-CVRGS_Feet_Add
-CVRGS_Feet_Subtract
-<div id="hide" class="hide">CVRGS_PP_Add
-CVRGS_PP_Subtract
-CVRGS_Balls_Add
-CVRGS_Balls_Subtract</div><a href="#" onclick="document.getElementById('hide').classList.toggle('hide'); return false" style="cursor: help;" title="Show more pointers - NSFW, 18+ Only!">↕ ↕ ↕</a>
+<span class="box" onclick="copy(this);" style="background-color: #f58231;" title="#f58231">  </span>CVRGS_Scale_Add
+<span class="box" onclick="copy(this);" style="background-color: #db6816;" title="#db6816">  </span>CVRGS_Scale_Subtract
+<span class="box" onclick="copy(this);" style="background-color: #4363d8;" title="#4363d8">  </span>CVRGS_Muscle_Add
+<span class="box" onclick="copy(this);" style="background-color: #2849bf;" title="#2849bf">  </span>CVRGS_Muscle_Subtract
+<span class="box" onclick="copy(this);" style="background-color: #aaffc3;" title="#aaffc3">  </span>CVRGS_Fat_Add
+<span class="box" onclick="copy(this);" style="background-color: #83e5a0;" title="#83e5a0">  </span>CVRGS_Fat_Subtract
+<span class="box" onclick="copy(this);" style="background-color: #fabed4;" title="#fabed4">  </span>CVRGS_Chest_Add
+<span class="box" onclick="copy(this);" style="background-color: #e094b0;" title="#e094b0">  </span>CVRGS_Chest_Subtract
+<span class="box" onclick="copy(this);" style="background-color: #bfef45;" title="#bfef45">  </span>CVRGS_Butt_Add
+<span class="box" onclick="copy(this);" style="background-color: #99ca1d;" title="#99ca1d">  </span>CVRGS_Butt_Subtract
+<span class="box" onclick="copy(this);" style="background-color: #f032e6;" title="#f032e6">  </span>CVRGS_Hips_Add
+<span class="box" onclick="copy(this);" style="background-color: #d618cd;" title="#d618cd">  </span>CVRGS_Hips_Subtract
+<span class="box" onclick="copy(this);" style="background-color: #fffac8;" title="#fffac8">  </span>CVRGS_Feet_Add
+<span class="box" onclick="copy(this);" style="background-color: #f2edb1;" title="#f2edb1">  </span>CVRGS_Feet_Subtract
+<div id="hide" class="hide"><span class="box" onclick="copy(this);" style="background-color: #42d4f4;" title="#42d4f4">  </span>CVRGS_PP_Add
+<span class="box" onclick="copy(this);" style="background-color: #25badb;" title="#25badb">  </span>CVRGS_PP_Subtract
+<span class="box" onclick="copy(this);" style="background-color: #ffe119;" title="#ffe119">  </span>CVRGS_Balls_Add
+<span class="box" onclick="copy(this);" style="background-color: #f2d40c;" title="#f2d40c">  </span>CVRGS_Balls_Subtract</div><a href="#" onclick="document.getElementById('hide').classList.toggle('hide'); return false" style="cursor: help;" title="Show more pointers - NSFW, 18+ Only!">↕ ↕ ↕</a>
 
 Aim pointers:
-CVRGS_Add
-CVRGS_Subtract
+<span class="box" onclick="copy(this);" style="background-color: #00ff00;" title="#00ff00">  </span>CVRGS_Add
+<span class="box" onclick="copy(this);" style="background-color: #ff0000;" title="#ff0000">  </span>CVRGS_Subtract
+
+(Colours are suggested for consistency between props)
 
 -----
 
