@@ -70,14 +70,17 @@
 			}
 		</script>
 	</head>
-	<body><div id="popup"></div>CVR Growth System 1.0.0 by Shaun Dreclin
+	<body><div id="popup"></div>CVR Growth System 1.0.0 by Shaun
 <a href="https://shaun.us.to/cvr/cvrgs">https://shaun.us.to/cvr/cvrgs</a>
 
-A freely available standard to help content creators make compatible growth-related avatars and props. Suggestions for additional pointers (and other general comments/questions) should be directed to Shaun#1680 on Discord.
+A freely available standard to help content creators make compatible growth-related avatars and props.
+Suggestions for additional pointers (and other comments/questions) should be directed to Shaun#1680 on Discord.
+
+Avatar prefab download: <a href="CVRGS_1.0.0.unitypackage">CVRGS_1.0.0.unitypackage</a>
 
 -----
 
-Public CVRGS Props: [Public props aren't a thing yet, DM me and I'll send it]
+Public CVRGS Props: [Public props aren't available yet, DM me and I'll send it]
 CVRGS Laser
 
 Public CVRGS Avatars:
@@ -107,7 +110,14 @@ Pointers:
 
 -----
 
-Usage (Avatars):<div class="lightbox-off" onclick="this.classList.toggle('lightbox-on');"><img src="usage.png" style="max-height: 270px;"></div>
+<div id="hide2">Usage (Avatars):
+1. Download <a href="CVRGS_1.0.0.unitypackage">CVRGS_1.0.0.unitypackage</a>
+2. Drag the prefab onto your hips
+3. Resize it to cover your head, torso, and legs
+4. Click each trigger and select the appropriate Setting Name under On Stay Trigger
+Optional: Create animations to disable the add/subtract triggers when the parameter has reached its max/min value
+
+<a href="#" onclick="document.getElementById('hide2').classList.toggle('hide'); document.getElementById('hide3').classList.toggle('hide'); return false" style="cursor: help;" title="Manual Instructions">Click here for Manual Instructions</a></div><div id="hide3" class="hide">Usage (Avatars): <div class="lightbox-off" onclick="this.classList.toggle('lightbox-on');"><img src="usage.png" style="max-height: 270px;"></div>
 1. Create an empty game object on your armature (Hips recommended)
 2. Add the "CVR Advanced Avatar Settings Trigger" script to it
 3. Resize the trigger area to cover your avatar's head, torso, and legs
@@ -121,9 +131,9 @@ Usage (Avatars):<div class="lightbox-off" onclick="this.classList.toggle('lightb
 5. Duplicate the game object and change the following settings:
    - Allowed Types Element 0:        CVRGS_Scale_Subtract
    - On Stay Trigger Update Method:  Subtract
+Optional: Create animations to disable the add/subtract triggers when the parameter has reached its max/min value
 
-Optional: Create animations to disable the add/subtract triggers when the parameter has reached it's max/min value
-
+<a href="#" onclick="document.getElementById('hide2').classList.toggle('hide'); document.getElementById('hide3').classList.toggle('hide'); return false" style="cursor: help;" title="Prefab Instructions">Click here for Prefab Instructions</a></div>
 -----
 
 Usage (Props):
