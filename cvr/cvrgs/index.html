@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!-- Don't read this page in source mode, there are old/unused things in the comments!
+	Also this HTML is an absolute disaster, I might clean it up later when I'm not being lazy -->
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -32,8 +34,7 @@
 				padding: 5px;
 				opacity: 0;
 			}
-
-			.lightbox-off {
+			/*.lightbox-off {
 				float: right;
 				margin-right: 10px;
 				cursor: pointer;
@@ -49,7 +50,7 @@
 				top: 50%; left: 50%;
 				transform: translate(-50%, -50%);
 				max-height: 100000px !important;
-			}
+			}*/
 		</style>
 		<script>
 			document.onmousemove = (e) => {
@@ -70,18 +71,17 @@
 			}
 		</script>
 	</head>
-	<body><div id="popup"></div>CVR Growth System 1.0.0 by Shaun
+	<body><div id="popup"></div>CVR Growth System 1.1.0 by Shaun
 <a href="https://shaun.us.to/cvr/cvrgs">https://shaun.us.to/cvr/cvrgs</a>
 
 A freely available standard to help content creators make compatible growth-related avatars and props.
-Suggestions for additional pointers (and other comments/questions) should be directed to Shaun#1680 on Discord.
 
 Avatar prefab download: <a href="CVRGS_1.1.0.unitypackage">CVRGS_1.1.0.unitypackage</a>
 
 -----
 
 Public CVRGS Props: [Public props aren't available yet, DM me and I'll send it]
-CVRGS Laser
+Growth Laser
 
 Public CVRGS Avatars:
 [TBD]
@@ -95,18 +95,28 @@ Pointers:
 <span class="box" onclick="copy(this);" style="background-color: #2849bf;" title="#2849bf">  </span>CVRGS_Muscle_Subtract
 <span class="box" onclick="copy(this);" style="background-color: #aaffc3;" title="#aaffc3">  </span>CVRGS_Fat_Add
 <span class="box" onclick="copy(this);" style="background-color: #83e5a0;" title="#83e5a0">  </span>CVRGS_Fat_Subtract
+  CVRGS_Head_Add
+  CVRGS_Head_Subtract
+  CVRGS_Snoot_Add
+  CVRGS_Snoot_Subtract
 <span class="box" onclick="copy(this);" style="background-color: #fabed4;" title="#fabed4">  </span>CVRGS_Chest_Add
 <span class="box" onclick="copy(this);" style="background-color: #e094b0;" title="#e094b0">  </span>CVRGS_Chest_Subtract
-<span class="box" onclick="copy(this);" style="background-color: #bfef45;" title="#bfef45">  </span>CVRGS_Butt_Add
-<span class="box" onclick="copy(this);" style="background-color: #99ca1d;" title="#99ca1d">  </span>CVRGS_Butt_Subtract
+  CVRGS_Arms_Add
+  CVRGS_Arms_Subtract
+  CVRGS_Hands_Add
+  CVRGS_Hands_Subtract
 <span class="box" onclick="copy(this);" style="background-color: #f032e6;" title="#f032e6">  </span>CVRGS_Hips_Add
 <span class="box" onclick="copy(this);" style="background-color: #d618cd;" title="#d618cd">  </span>CVRGS_Hips_Subtract
-<span class="box" onclick="copy(this);" style="background-color: #fffac8;" title="#fffac8">  </span>CVRGS_Feet_Add
-<span class="box" onclick="copy(this);" style="background-color: #f2edb1;" title="#f2edb1">  </span>CVRGS_Feet_Subtract
-<div id="hide" class="hide"><span class="box" onclick="copy(this);" style="background-color: #42d4f4;" title="#42d4f4">  </span>CVRGS_PP_Add
+<span class="box" onclick="copy(this);" style="background-color: #bfef45;" title="#bfef45">  </span>CVRGS_Butt_Add
+<span class="box" onclick="copy(this);" style="background-color: #99ca1d;" title="#99ca1d">  </span>CVRGS_Butt_Subtract
+<span class="box" onclick="copy(this);" style="background-color: #42d4f4;" title="#42d4f4">  </span>CVRGS_PP_Add
 <span class="box" onclick="copy(this);" style="background-color: #25badb;" title="#25badb">  </span>CVRGS_PP_Subtract
 <span class="box" onclick="copy(this);" style="background-color: #ffe119;" title="#ffe119">  </span>CVRGS_Balls_Add
-<span class="box" onclick="copy(this);" style="background-color: #f2d40c;" title="#f2d40c">  </span>CVRGS_Balls_Subtract</div><a href="#" onclick="document.getElementById('hide').classList.toggle('hide'); return false" style="cursor: help;" title="Show more pointers - NSFW, 18+ Only!">↕ ↕ ↕</a>
+<span class="box" onclick="copy(this);" style="background-color: #f2d40c;" title="#f2d40c">  </span>CVRGS_Balls_Subtract
+  CVRGS_Legs_Add
+  CVRGS_Legs_Subtract
+  CVRGS_Feet_Add
+  CVRGS_Feet_Subtract
 
 -----
 
@@ -141,9 +151,12 @@ Usage (Props):
 2. Add a collider to the game object the pointer is on (set to trigger) to give it a shape
 3. Set up toggles/animations to turn the pointer on and off as desired
 
-Note: Stacking multiple pointers of the same type will create a more powerful effect
-Optional: Use the colours suggested above for consistency between props
-
+Notes for prop creators:
+- Stacking multiple pointers of the same type will create a more powerful effect
+- You can use a trigger set to one of the pointers above with "_Enabled" at the end to check
+  if an avatar has the corresponding pointer enabled. e.g "CVRGS_Scale_Add_Enabled"
+- (Optional) Use the colours suggested above for consistency between props.
+             <span style="color: #999;">Colour choices are WIP, DM me if you have ideas for them</span>
 -----
 
 Appreciate my work? Toss me a couple bucks! <a target="_blank" href="https://paypal.me/shaundreclin">https://paypal.me/shaundreclin</a></body>
