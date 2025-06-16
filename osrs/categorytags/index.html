@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- Be warned ye who delve into the depths of me code... It stinks! -->
+		<title>OSRS Wiki Categories -> RuneLite Bank Tag</title>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			body {
+				background: #333;
+				font-family: verdana;
+				font-size: 12px;
+			}
+			#content {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 335px;
+				border: 2px solid #000;
+				border-radius: 5px;
+				box-shadow: 3px 3px 4px 4px #222;
+				padding: 0 10px 10px 10px;
+				background: #DDD;
+				text-align: left;
+			}
+			#content>h1 {
+				font-size: 14px;
+				font-weight: bold;
+				text-align: center;
+			}
+			a, a:visited {
+				text-decoration: none;
+				color: #00F;
+			} a:hover {
+				text-decoration: underline;
+			}
+			#footer {
+				position: absolute;
+				bottom: 10px;
+				left: 50%;
+				transform: translate(-50%, 0);
+				color: #FFF;
+				text-align: center;
+				font-size: 10px;
+			}
+			#footer a, #footer a:visited {
+				color: #7EF;
+			}
+			#output {
+				display: none;
+				font-family: monospace;
+				word-wrap: break-word;
+				user-select: none;
+				border-radius: 5px;
+				border: 3px solid #2d2926;
+				background: #484033;
+				box-shadow: 2px 2px 2px #AAA;
+			}
+			#outputLabel {
+				font-weight: bold;
+				cursor: pointer;
+			}
+			.item {
+				display: inline-block;
+				text-align: center;
+				width: 38px;
+				height: 38px;
+				/*border-radius: 5px;
+				background: #888;
+				box-shadow: 2px 2px 2px #AAA;*/
+			}
+			.item img {
+				vertical-align: middle;
+			}
+			.item:hover {
+				opacity: 0.5;
+				/*background: #AAA;*/
+			}
+			#hiddenOutput {
+				opacity: 0;
+				position: fixed;
+				z-index: -1000;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				document.getElementById('form').addEventListener('submit', function(e) {
+					e.preventDefault();
+					getIDs(document.getElementById('categories').value);
+				});
+			}
+
+			// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+			async function getIDs(categories) {
+				// https://icons8.com/preloaders/
+				outputLabel.innerHTML = "<img src='loading.gif' width='32' height='32'>";
+				output.style.display = "none;";
+				hiddenOutput.innerHTML = "";
+				runelite.innerHTML = "";
+
+				categories = categories.replace(/, /g, ",").replace(/,/g, "||").replace(/ /g, "_");
+				const url = `https://oldschool.runescape.wiki/api.php?action=ask&query=[[category:${categories}]]|?All+Item+ID|Limit=1000000&format=json`;
+				try {
+					const response = await fetch(url);
+					if (!response.ok) {
+						throw new Error(`Response status: ${response.status}`);
+					}
+
+					const json = await response.json();
+
+					let tag = "";
+					const results = json.query.results
+					if (results.length < 1) {
+						outputLabel.innerHTML = `<br>No items found in cagtegory "${categories}"`;
+						output.innerHTML = "";
+						output.style.display = "none";
+						hiddenOutput.innerHTML = "";
+						runelite.innerHTML = "";
+						return;
+					}
+					for (let key in results) {
+						let ids = results[key].printouts["All Item ID"];
+						let name = results[key].fulltext;
+						let link = results[key].fullurl;
+						if (tag == "" && ids.length > 0 ) {
+							tag = categories.replace(/(?:\|\||_)/g, "-").toLowerCase() + "," + ids[0];
+							//tagDisplay = categories.replace(/(?:\|\||_)/g, "-").toLowerCase() + "," + ids[0];
+							tagDisplay = "";
+						}
+						
+						for (let id of ids) {
+							tag += "," + id;
+							//tagDisplay += "," + id + `<span class="item"><img src="https://chisel.weirdgloop.org/static/img/osrs-sprite/${id}.png"></span>`;
+							tagDisplay += `<a target="_blank" class="item" title="${id}: ${name}" href="${link}"><img src="https://chisel.weirdgloop.org/static/img/osrs-sprite/${id}.png"></a>`;
+						}
+					}
+					outputLabel.innerHTML = `<br>Click here to copy "${categories.replace(/(?:\|\||_)/g, "-").toLowerCase()}"<br><br>`;
+					output.innerHTML = tagDisplay; //tag.replace(/,/g, ",&#8203;");
+					output.style.display = "block";
+					hiddenOutput.innerHTML = tag;
+					runelite.innerHTML = `<br><a target="_blank" href="https://runelite.net/tag/show/${tag}">View tag on runelite.net</a>`;
+
+					outputLabel.onclick = function(e) {
+						hiddenOutput.focus();
+						hiddenOutput.select();
+						document.execCommand('copy');
+						outputLabel.innerHTML = "<br>Copied!<br><br>";
+						//output.innerHTML = "";
+						//hiddenOutput.innerHTML = ""
+					}
+
+				} catch (error) {
+					console.error(error.message);
+				}
+			}
+
+
+		</script>
+	</head>
+	<body>
+		<div id="content" title="Click to copy">
+			<h1>
+				OSRS Wiki Categories -><br>
+				RuneLite Bank Tag
+			</h1>
+			Enter a comma-separated list of<br>
+			<a href="https://oldschool.runescape.wiki/w/Special:Categories?limit=10000">OSRS Wiki categories</a> and press Generate.<br>
+			<br>
+			<form id='form'>
+				<input id="categories">
+				<button id="generate">Generate</button><br>
+			</form>
+			<div id="outputLabel"></div>
+			<div id="output"></div>
+			<textarea id="hiddenOutput"></textarea>
+			<div id="runelite"></div>
+		</div>
+		<div id="footer"><a target="_blank" href="https://paypal.me/shaundreclin">Appreciate my work? Toss me a couple bucks!</a></div>
+	</body>
+</html>
